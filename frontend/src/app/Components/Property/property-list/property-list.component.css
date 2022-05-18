@@ -1,0 +1,11 @@
+.search-wrapper{
+  padding: 20px 10px;
+}
+label{
+  white-space: nowrap;
+  overflow: hidden;
+  float: left;
+}
+.btn{
+  margin-left: 5px;
+}
