@@ -2,7 +2,7 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Injectable } from "@angular/core";
 import { Observable, of, throwError } from "rxjs";
 import { catchError, concatMap, retry, retryWhen } from "rxjs/operators";
-import { ErrorCode } from "src/Enums/enums";
+import { ErrorCode } from "src/enums/enums";
 import { AlertifyService } from "./alertify.service";
 
 @Injectable({

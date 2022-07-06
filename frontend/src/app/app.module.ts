@@ -26,7 +26,6 @@ import { SortPipe } from './Pipe/sort.pipe';
 import { HttpErrorInterceptorService } from './Services/http-error-interceptor';
 import { DatePipe } from '@angular/common';
 import { ValidationService } from './Services/validation.service';
-import { LoadingComponent } from './Components/Loading/spinner.component';
 
 const appRoutes: Routes = [
   { path: '', component: PropertyListComponent },
@@ -43,7 +42,6 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    LoadingComponent,
     PropertyCardComponent,
     PropertyDetailComponent,
     PropertyListComponent,

@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HousingService } from 'src/app/Services/housing.service';
 import { IPropertyBase } from "src/app/Models/ipropertybase";
 import { ActivatedRoute, Router } from '@angular/router';
-import { renderFlagCheckIfStmt } from '@angular/compiler/src/render3/view/template';
-import { LoadingService } from 'src/app/Services/loading.service';
 
 @Component({
   selector: 'app-property-list',
@@ -12,6 +10,7 @@ import { LoadingService } from 'src/app/Services/loading.service';
 })
 export class PropertyListComponent implements OnInit {
   sellRent = 1;
+  isLoading: boolean = true;
   properties: IPropertyBase[];
   Today = new Date();
   city = '';
@@ -20,14 +19,10 @@ export class PropertyListComponent implements OnInit {
   SortDirection = 'asc';
 
   constructor(private route: ActivatedRoute,
-              private housingService: HousingService,
-              private loadingService: LoadingService) {}
+              private housingService: HousingService) {}
 
   ngOnInit(): void {
 
-    this.loadingService.showLoader();
-
-    // Set buy parameter
     if(this.route.snapshot.url.toString())
     {
       this.sellRent = 2;
@@ -35,9 +30,11 @@ export class PropertyListComponent implements OnInit {
 
     this.housingService.getAllProperties(this.sellRent)
       .subscribe(
-        (data) => { this.properties = data; },
+        (data) => { this.properties = data;},
         (error) => { console.log(error); })
-      .add(() => { this.loadingService.hideLoader(); });
+      .add(() => {
+        this.isLoading = false;
+      });
   };
 
   onCityFilter(){
