@@ -1,0 +1,99 @@
+<div class="row shadow">
+  <div class="col-sm-4 p-0">
+    <div class="card">
+      <div class="card-img-wrapper">
+        <img *ngIf="mainPhotoUrl" class="card-img-top" src="{{ mainPhotoUrl }}">
+        <img *ngIf="!mainPhotoUrl" class="card-img-top" src="assets/images/house_default.png">
+      </div>
+      <div class="card-body">
+        <h2 class="card-title">{{property.name}}</h2>
+        <strong>{{property.bedrooms}} Bedroom(s) {{property.propertyType}}</strong><br/>
+        <strong>Price: ${{property.price}} NZD</strong><br/>
+        <strong>Location: {{property.city}}</strong>
+        <hr>
+        <div>
+            <strong>Land Area: </strong>
+            {{property.landArea}} m2
+        </div>
+
+        <div>
+            <strong>Furnishing Type: </strong>
+            {{property.furnishingType}}
+        </div>
+        <div>
+            <strong>Available for: </strong>
+            <span *ngIf="property.sellRent == 1">Purchase</span>
+            <span *ngIf="property.sellRent == 2">Rent</span>
+        </div>
+
+    </div>
+      <div class="card-footer">
+        <div class="btn-group d-flex">
+          <button class="btn btn-primary">Message</button>
+        </div>
+      </div>
+  </div>
+  </div>
+
+  <div class="col-sm-8 p-0">
+    <div class="tab-panel p-3">
+      <tabset class="member-tabset">
+        <tab heading="Overview">
+          <h1>Overview</h1>
+          <div class="row">
+              <div class="col-sm-6">
+                  <div class="heading">
+                      <strong>Name</strong>
+                      <p>{{property.name}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Possession</strong>
+                      <p>{{property.estPossessionOn | date}}</p>
+                  </div>
+              </div>
+
+              <div class="col-sm-6">
+
+                  <div class="heading">
+                      <strong>Bond</strong>
+                      <p>{{property.bond}}</p>
+                  </div>
+                  <div class="heading">
+                      <strong>Maintenance</strong>
+                      <p>{{property.maintenance}}</p>
+                  </div>
+              </div>
+              <div class="col-sm-12">
+                  <div class="heading">
+                      <strong>About Property</strong>
+                      <p>{{property.description}}</p>
+                  </div>
+              </div>
+            </div>
+        </tab>
+        <tab heading="Address">
+          <div class="col-sm-12">
+            <h1>Address</h1>
+            <div class="heading">
+                <strong>Number: </strong>{{property.address}}<br/>
+                <strong>Street: </strong>{{property.address2}}<br/>
+                <strong>City: </strong>{{property.city}}
+            </div>
+        </div>
+
+        </tab>
+        <tab heading="Photos">
+          <div *ngIf="galleryOptions?.length && galleryImages?.length">
+            <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+          </div>
+        </tab>
+        <tab heading="Contact">
+          <h1>Contact Info</h1>
+          Proudly presented to the market by John Smith<br/>
+          020-2020-2020
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>

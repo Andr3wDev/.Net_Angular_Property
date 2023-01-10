@@ -1,0 +1,21 @@
+a {
+  text-decoration: none;
+  font-weight:600;
+}
+.nav-item{
+  margin: 0px 5px
+}
+.navbar-logo {
+  max-height:50px;
+  margin-right:12px;
+}
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.navbar-toggler,
+.navbar-toggler:focus {
+  border:none;
+  outline:none;
+  box-shadow:none;
+}

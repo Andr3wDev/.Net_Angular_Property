@@ -1,0 +1,29 @@
+.error-block {
+  color:red;
+}
+.form-group{
+  margin-bottom:.5rem!important
+}
+.card{
+  border:none;
+}
+.form-group:last-child{
+  margin-bottom: 0 !important;
+}
+.btn-next,
+.btn-back,
+.btn-save,
+.btn-cancel
+{
+  margin-bottom: 0 !important;
+}
+.btn-next,
+.btn-save{
+  float:right;
+}
+.btn-cancel{
+  margin-left:5px;
+}
+.tab-panel{
+  height: 100%;
+}
